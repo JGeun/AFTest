@@ -32,16 +32,15 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:model"))
 
-    implementation(Dependencies.retrofit)
+    api(Dependencies.retrofit)
     implementation(Dependencies.retrofit.gsonConverter)
     implementation(Dependencies.okHttp)
     implementation(Dependencies.okHttp.loggingInterceptor)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.4")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
+    testImplementation(Dependencies.test.jUnit)
+    androidTestImplementation(Dependencies.test.jUnitExt)
+    androidTestImplementation(Dependencies.test.expresso)
 
     implementation(Dependencies.hilt.android)
     kapt(Dependencies.hilt.compiler)

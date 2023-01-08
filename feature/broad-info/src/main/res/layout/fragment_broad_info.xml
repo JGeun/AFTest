@@ -1,0 +1,138 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.jgeun.aftest.broad_info.BroadInfoFragment">
+
+    <data>
+
+        <variable
+            name="broadInfo"
+            type="com.jgeun.aftest.common_ui.vo.BroadInfoViewArgument" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/broad_info_thumb_gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/broad_info_thumb_gl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/broad_info_thumb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                app:loadImage="@{broadInfo.thumb}" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/broad_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{broadInfo.title}"
+            android:textColor="@color/broad_title_color"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/broad_info_thumb_gl"
+            tools:text="방송 타이틀" />
+
+        <View
+            android:id="@+id/broad_info_title_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="5dp"
+            android:background="@color/divide_line_color"
+            app:layout_constraintTop_toBottomOf="@id/broad_info_title" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/broad_info_profile_img_cv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/broad_info_title_line">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/broad_info_profile_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:loadImage="@{broadInfo.profileImg}"
+                android:scaleType="fitXY"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/broad_info_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@{broadInfo.nickname}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/broad_info_profile_img_cv"
+            app:layout_constraintStart_toEndOf="@id/broad_info_profile_img_cv"
+            app:layout_constraintTop_toTopOf="@id/broad_info_profile_img_cv"
+            tools:text="아프리카tv 닉네임" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/broad_info_total_view_icon"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_baseline_people_alt_24"
+            app:layout_constraintBottom_toBottomOf="@id/broad_info_profile_img_cv"
+            app:layout_constraintStart_toEndOf="@id/broad_info_nickname"
+            app:layout_constraintTop_toTopOf="@id/broad_info_profile_img_cv" />
+
+        <TextView
+            android:id="@+id/broad_info_total_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:text="@{broadInfo.totalViewCnt}"
+            app:layout_constraintBottom_toBottomOf="@id/broad_info_total_view_icon"
+            app:layout_constraintStart_toEndOf="@id/broad_info_total_view_icon"
+            app:layout_constraintTop_toTopOf="@id/broad_info_total_view_icon"
+            tools:text="35,222" />
+
+        <View
+            android:id="@+id/broad_info_user_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="5dp"
+            android:background="@color/divide_line_color"
+            app:layout_constraintTop_toBottomOf="@id/broad_info_profile_img_cv" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chat_area_msg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/broad_info_user_line" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

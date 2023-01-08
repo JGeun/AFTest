@@ -32,13 +32,13 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:model"))
     api(project(":core:network"))
 
+    testImplementation(Dependencies.test.jUnit)
+    androidTestImplementation(Dependencies.test.jUnitExt)
+    androidTestImplementation(Dependencies.test.expresso)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.4")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
+    implementation(Dependencies.gson)
 
     implementation(Dependencies.kotlin.coroutine)
 

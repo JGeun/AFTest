@@ -32,14 +32,11 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:model"))
-    implementation(project(":core:data"))
+    api(project(":core:data"))
 
-
-
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.4")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
+    testImplementation(Dependencies.test.jUnit)
+    androidTestImplementation(Dependencies.test.jUnitExt)
+    androidTestImplementation(Dependencies.test.expresso)
 
     implementation(Dependencies.hilt.android)
     kapt(Dependencies.hilt.compiler)

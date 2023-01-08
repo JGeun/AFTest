@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="broad"
+            type="com.jgeun.aftest.domain.vo.BroadVO" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="5dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/item_broad_list_image_gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="5dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/item_broad_list_image_gl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/item_broad_list_thumb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                app:loadImage="@{broad.broadThumb}" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/item_broad_list_more_vert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="-5dp"
+            android:src="@drawable/ic_baseline_more_vert_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_broad_list_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="1dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{broad.broadTitle}"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/item_broad_list_more_vert"
+            app:layout_constraintStart_toStartOf="@id/item_broad_list_image_gl"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="김민교 교양그룹 로나월드:서수기릿" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/item_broad_list_profile_img_cv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/item_broad_list_title">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/item_broad_list_profile_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="fitXY"
+                app:loadImage="@{broad.profileImg}" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/item_broad_list_user_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/broad_nickname_color"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/item_broad_list_profile_img_cv"
+            app:layout_constraintTop_toTopOf="@id/item_broad_list_profile_img_cv"
+            tools:text="김민교"
+            android:text="@{broad.userNick}"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/item_broad_list_total_view_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_people_alt_24"
+            app:layout_constraintBottom_toBottomOf="@id/item_broad_list_profile_img_cv"
+            app:layout_constraintStart_toStartOf="@id/item_broad_list_user_nickname"
+            app:layout_constraintTop_toBottomOf="@id/item_broad_list_user_nickname" />
+
+        <TextView
+            android:id="@+id/item_broad_list_total_view_cnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/item_broad_list_total_view_img"
+            app:layout_constraintStart_toEndOf="@id/item_broad_list_total_view_img"
+            app:layout_constraintTop_toTopOf="@id/item_broad_list_total_view_img"
+            tools:text="34,368"
+            android:text="@{broad.totalViewCnt}"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

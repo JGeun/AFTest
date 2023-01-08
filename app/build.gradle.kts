@@ -39,17 +39,17 @@ android {
 dependencies {
     implementation(project(":feature:broad-list"))
     implementation(project(":feature:broad-info"))
+    implementation(project(":core:common-ui"))
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.4")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
+    implementation(Dependencies.navigation.fragment)
+    implementation(Dependencies.navigation.ui)
 
     implementation(Dependencies.hilt.android)
     kapt(Dependencies.hilt.compiler)
+
+    testImplementation(Dependencies.test.jUnit)
+    androidTestImplementation(Dependencies.test.jUnitExt)
+    androidTestImplementation(Dependencies.test.expresso)
 }
 
 // Allow references to generated code

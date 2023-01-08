@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".BroadListFragment">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.jgeun.aftest.feature.broad_list.BroadViewModel" />
+        <variable
+            name="categoryPos"
+            type="Integer" />
+        <variable
+            name="adapter"
+            type="com.jgeun.aftest.feature.broad_list.BroadAdapter" />
+
+        <variable
+            name="itemDecoration"
+            type="com.jgeun.aftest.feature.broad_list.BroadListItemDecoration" />
+        <variable
+            name="rvFixedOption"
+            type="Boolean" />
+        <variable
+            name="rvScrollListener"
+            type="androidx.recyclerview.widget.RecyclerView.OnScrollListener" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/broad_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:rvItemDecoration="@{itemDecoration}"
+            app:rvItemFixedSizeOption="@{rvFixedOption}"
+            app:rvScrollListener="@{rvScrollListener}"
+            app:broads="@{vm.categoryBroads}"
+            app:categoryPos="@{categoryPos}"/>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:showProgressBar="@{vm.categoryBroads}"
+            tools:visibility="visible" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

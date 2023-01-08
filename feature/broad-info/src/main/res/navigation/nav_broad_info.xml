@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_broad_info"
+    app:startDestination="@id/broadInfoFragment">
+
+    <fragment
+        android:id="@+id/broadInfoFragment"
+        android:name="com.jgeun.aftest.broad_info.BroadInfoFragment"
+        android:label="fragment_broad_info"
+        tools:layout="@layout/fragment_broad_info" />
+</navigation>
